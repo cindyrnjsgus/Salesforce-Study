@@ -1,0 +1,24 @@
+<aura:component description="ChangeClass*"
+                implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes"
+                controller="ChangeClassController">
+
+    <aura:handler name="init" value="{!this}" action="{!c.fnInit}" />
+
+    <!--변수선언-->
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="selectedClass" type="String" />
+    <aura:attribute name="classes" type="List" default="['학급 없음']"/>
+
+    <div class="slds-col modal-header slds-modal__header">반 이동</div>
+    <div style="height:30vh; padding:3vh;">
+        <!--combobox (picklist)-->
+        <lightning:combobox name="selectedClass" label="학급" placeholder="학급을 선택하세요."
+                            options="{!v.classes}" value="{!v.selectedClass}" />
+    </div>
+    <div class="slds-col modal-footer slds-modal__footer">
+        <lightning:button variant="brand" label="save" onclick="{!c.fnSave}"/>
+        <lightning:button variant="neutral" label="cancel" onclick="{!c.fnCancel}"/>
+    </div>
+
+
+</aura:component>

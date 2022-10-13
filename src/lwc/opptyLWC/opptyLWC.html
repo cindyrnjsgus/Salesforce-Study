@@ -1,0 +1,29 @@
+<!--
+ - Created by samsung on 2022-09-02.
+-->
+
+<template>
+    <div class="opptyStyle_01">
+        <lightning-card title="Change Owner">
+        <lightning-record-edit-form object-api-name="Opportunity" record-id={recordId} aria-colcount=2>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="AccountId"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="OwnerId"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-input-field field-name="OwnerId" ></lightning-input-field>
+                </div>
+            </div>
+            <lightning-button type="submit" name="save" label="Change Owner" onclick={changeValue}></lightning-button>
+        </lightning-record-edit-form><br>
+
+        <h1>** Information **</h1>
+        <p>Opportunity Name : {OpptyName}</p>
+        <p>Opportunity Owner Name : {OwnerName}</p>
+        <p>Opportunity Owner Id : {OwnerId}</p>
+        </lightning-card>
+    </div>
+</template>

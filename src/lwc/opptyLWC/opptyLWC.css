@@ -1,0 +1,20 @@
+/**
+ * Created by samsung on 2022-09-02.
+ */
+
+.opptyStyle_01{
+    background-color : #F3F3F3;
+    padding : 16px;
+    border-radius : 4px;
+    border : 1px solid var(--lwc-colorBorderInputDisabled,rgb(201, 201, 201));
+
+}
+
+.opptyStyle_01.THIS{
+    background-color : #F3F3F3;
+}
+
+:host {
+    --sds-c-card-color-background: #F3F3F3;
+}
+
