@@ -10,7 +10,8 @@
                                                         if(state === "SUCCESS") {
                                                             var returnValue = response.getReturnValue();
                                                             component.set("v.classes", returnValue);
-                                                        } else if(state === "ERROR") {
+                                                        }
+                                                        else if(state === "ERROR") {
                                                             var errors = response.getError();
                                                              if(errors) {
                                                                  if(errors[0] && errors[0].message) this.showToast("error", errors[0].message);
@@ -20,9 +21,9 @@
                                                              }
                                                         }
                                                     }
-                            );
+        );
         $A.enqueueAction(action);
-    },
+    }, // getInitData
 
     changeClass : function(component, event) {
         var action = component.get("c.changeClass");
@@ -53,7 +54,7 @@
             }
         });
         $A.enqueueAction(action);
-    },
+    }, // changeClass
 
     showToast : function(type, message) {
         var evt = $A.get("e.force:showToast");
