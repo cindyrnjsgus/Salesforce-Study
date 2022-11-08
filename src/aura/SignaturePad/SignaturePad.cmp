@@ -1,0 +1,71 @@
+
+<aura:component controller="AssetSignatureFormController"
+                implements="force:hasSObjectName,force:hasRecordId,force:appHostable,force:lightningQuickActionWithoutHeader"
+                access="global"
+                description="AssetSignatureForm">
+
+    <aura:attribute name="sObjectName" type="String" />
+    <ltng:require afterScriptsLoaded="{!c.fnInit}"/>
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:html tag="style">
+        .slds-modal__container{
+        min-width: 70% !important;
+        max-width: fit-content !important;
+        padding: 0 20px;
+        }
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content {
+        overflow-y: hidden !important;
+        height: unset !important;
+        max-height: unset !important;
+        }
+        .slds-modal__container .slds-modal__header .slds-modal__close {
+        visibility: hidden !important;
+        }
+        .custom-modal__close {
+        width: var(--lwc-squareIconMediumBoundary,2rem);
+        height: var(--lwc-squareIconMediumBoundary,2rem);
+        position: absolute;
+        top: -2.5rem;
+        right: -.5rem;
+        }
+
+    </aura:html>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium"
+             aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="spinner" alternativeText="Loading" size="small" variant="brand"/>
+        </aura:if>
+
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" size="large" alternativeText="Close" variant="bare-inverse" class="custom-modal__close" onclick="{!c.fnCancel}" />
+                <h2 class="slds-text-heading_medium" id="modal-heading-id">Signature</h2>
+            </div>
+
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning:layout>
+                    <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                        <canvas aura:id="installer" height="150" width="300" style="border:2px solid; background: white;"></canvas>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+
+            <footer class="slds-modal__footer">
+                <lightning:buttonIcon variant="bare" iconName="utility:refresh" alternativeText="refresh" size="large" onclick="{!c.fnErase}"/>
+                <lightning:button variant="brand" label="Save" iconName="utility:download" iconPosition="right" onclick="{!c.fnSave}"/>
+                <lightning:button variant="neutral" label="Cancel" onclick="{!c.fnCancel}"/>
+            </footer>
+        </div>
+    </section>
+    <aura:if isTrue="{!v.isCommunity}">
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

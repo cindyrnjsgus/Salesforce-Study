@@ -20,6 +20,10 @@
                       <option name="entries">
                         <list>
                           <MetadataEntry>
+                            <option name="name" value="AssetContract" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="PrintStudentList2" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -35,11 +39,19 @@
                       <option name="entries">
                         <list>
                           <MetadataEntry>
+                            <option name="name" value="AssetContract" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="ChangeClass" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Preview" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="SearchStudent" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
